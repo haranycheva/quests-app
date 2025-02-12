@@ -6,13 +6,14 @@ export function QuestCard({ quest }) {
   return (
     <Link className="block" href="#">
       <div className="flex items-center flex-col">
-        <Image
-          width="208"
-          height="278"
-          src={quest.posterImage}
-          alt="poster"
-          className="w-52 h-62"
-        />
+        <div className="w-[208px] h-[278px] relative">
+          <Image
+            src={quest.posterImage}
+            alt="poster"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
         <h4 className="text-[#011627] font-inter text-xl">{quest.name}</h4>
         {quest.rating && <Ratings rating={quest.rating} />}
       </div>

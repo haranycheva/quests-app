@@ -59,14 +59,12 @@ export const addTaskForQuest = async (task) => {
 export const getUserInfo = async () => {
   const res = await axios.get(`/user/getInfo/`);
   return res.data;
-};
-
+}
 export const joinQuest = async (id) => {
   const res = await axios.post(`/quest/join/${id}`);
   return res.data;
-};
-
-export const checkIfJoined = async () => {
-  const res = await axios.get(`/checkUserJoined/${id}`);
+}
+export const checkIfJoined = async (id) => {
+  const res = await axios.get(`/quest/checkUserJoined/${id}`);
   return res.data;
-};
+}

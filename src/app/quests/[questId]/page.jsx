@@ -41,7 +41,7 @@ export default async function QuestPage({ params }) {
       </div>
       <ul className="flex gap-[22px] items-center mt-8">
         <li>
-          <JoinQuestBtn />
+          <JoinQuestBtn quest={quest} />
         </li>
         <li>
           <Link

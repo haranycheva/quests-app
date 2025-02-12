@@ -68,3 +68,8 @@ export const checkIfJoined = async (id) => {
   const res = await axios.get(`/quest/checkUserJoined/${id}`);
   return res.data;
 }
+
+export const getQuestList = async (category) => {
+  const res = await axios.get(`/quest/list?category=${category}`);
+  return res.data;
+};

@@ -73,3 +73,13 @@ export const getQuestList = async (category) => {
   const res = await axios.get(`/quest/list?category=${category}`);
   return res.data;
 };
+
+export const publishReview = async(id, review) => {
+  const res =  await axios.post(`/review/create/${id}`, review)
+  return res.data;
+}
+
+export const getReviews = async(id) => {
+  const res =  await axios.get(`/review/list/${id}`)
+  return res.data;
+}

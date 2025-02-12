@@ -3,10 +3,9 @@
 import StarRatings from 'react-star-ratings';
 import { useEffect, useState } from 'react';
 
-export function Ratings({ rating }) {
+export function ReviewRating({ rating }) {
   const [mounted, setMounted] = useState(false);
-  const currentRating = Number(rating) || 0;
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -17,11 +16,11 @@ export function Ratings({ rating }) {
 
   return (
     <StarRatings
-      rating={currentRating}
+      rating={rating}
       starRatedColor="#38369A"
       starEmptyColor="#7CA5B8"
       numberOfStars={5}
-      starDimension="30px"
+      starDimension="10px"
       starSpacing="2px"
     />
   );

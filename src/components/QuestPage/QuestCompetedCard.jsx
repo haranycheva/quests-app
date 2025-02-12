@@ -2,6 +2,7 @@ import { rgbDataURL } from "@/functions/rgbDataURL";
 import Link from "next/link";
 import { barrio } from "@/fonts/barrio";
 import Image from "next/image";
+import { Ratings } from "../repeated/QuestCard/Ratings";
 
 export function QuestCompletedCard({ quest }) {
   return (

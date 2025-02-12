@@ -52,7 +52,7 @@ export default async function QuestPage({ params }) {
           </Link>
         </li>
       </ul>
-      <Reviews />
+      <Reviews questId={questId}/>
     </div>
   );
 }

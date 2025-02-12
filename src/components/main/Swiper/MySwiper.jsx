@@ -10,6 +10,28 @@ import "./swiper.css";
 import { QuestCard } from "@/components/repeated/QuestCard/QuestCard";
 
 export function MySwiper({ questList, category }) {
+  if (questList.length <= 3) {
+    return (
+      <div>
+        <h3
+          className={`${barrio.className}  text-accent-color md:text-8xl  text-6xl lg:ml-[20px] lg:mt-0 mt-[10px]`}
+        >
+          {category}
+        </h3>
+        <div className="flex justify-center items-center w-full">
+          <ul className="w-full max-w-[880px]">
+              {questList.map((quest) => (
+                <li className="justify-center" key={quest.id}>
+                  <div className=" inline-block bg-[#eeeeee] rounded-[50px] p-8 transition ease-in-out duration-100 hover:bg-[#C6D2ED]">
+                    <QuestCard quest={quest} />
+                  </div>
+                </li>
+              ))}
+          </ul>
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <h3
@@ -26,7 +48,7 @@ export function MySwiper({ questList, category }) {
             navigation
             breakpoints={{
               768: {
-                slidesPerView: 3, 
+                slidesPerView: 3,
                 spaceBetween: 30,
               },
             }}

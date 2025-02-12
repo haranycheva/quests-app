@@ -34,3 +34,18 @@ export const getUserQuest = async() => {
   const res = await axios.get("/quest/created-list")
   return res.data
 }
+
+export const getQuestById =async(id) => {
+  const res = await axios.get(`/quest/getInfo/${id}`)
+  return res.data
+}
+
+export const deleteQuestById = async(id) => {
+  const res = await axios.delete(`/quest/remove/${id}`)
+  return res.data
+}
+
+export const addTaskForTest = async(task) => {
+  const res = await axios.post(`/quest/create/`, task)
+  return res.data
+}

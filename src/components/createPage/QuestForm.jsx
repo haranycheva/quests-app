@@ -1,6 +1,7 @@
 "use client";
 
 import { createQuest } from "@/fetch";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 const categories = [
@@ -48,11 +49,7 @@ export function QuestForm() {
       formDataToSend.append("file", poster);
     }
 
-    console.log("FormData:", Object.fromEntries(formDataToSend.entries()));
     const res = await createQuest(formDataToSend)
-    console.log(res)
-    console.log(2);
-    
     setFormData({
       name: "",
       description: "",
@@ -60,6 +57,8 @@ export function QuestForm() {
       level: levels[0],
     });
     setPoster(null);
+
+    redirect(`/quests/${res.id}`)
   };
 
   return (

@@ -18,7 +18,7 @@ export const TaskList = ({ tasks }) => {
             ))}
           </ul>
         ) : (
-          <p clclassName={`${barrio.className} md:text-5xl  text-4xl text-accent-color ml-4`}>No tasks yet</p>
+          <p className={`${barrio.className} md:text-5xl  text-4xl text-accent-color ml-4`}>No tasks yet</p>
         )}
       </div>
     );

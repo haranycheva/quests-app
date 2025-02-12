@@ -1,6 +1,6 @@
 "use client";
 
-import { getReviews, publishReview } from "@/fetch";
+import { getReviews, getUserInfo, publishReview } from "@/fetch";
 import { barrio } from "@/fonts/barrio";
 import { useEffect, useState } from "react";
 import { ReviewRating } from "./ReviewRating";
@@ -11,10 +11,15 @@ export const Reviews = ({ questId }) => {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(1);
   const [reviews, setReviews] = useState([]);
+  const [form, setForm] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const reviewArr = await getReviews(questId);
+      const user = await getUserInfo()
+      if(!reviewArr.some(rev => rev.user.id === user.id)){
+        setForm(true)
+      }
       setReviews(reviewArr);
     }
     fetchData();
@@ -28,6 +33,7 @@ export const Reviews = ({ questId }) => {
       setReviews([...reviews, published]);
       setReview("");
       setRating(1);
+      setForm(false)
     }
   };
 
@@ -66,7 +72,7 @@ export const Reviews = ({ questId }) => {
         )}
       </div>
 
-      <h2 className={`${barrio.className} text-2xl text-accent-color mt-4`}>
+   {form ? <><h2 className={`${barrio.className} text-2xl text-accent-color mt-4`}>
         Leave your review
       </h2>
       <textarea
@@ -95,6 +101,7 @@ export const Reviews = ({ questId }) => {
       >
         Send
       </button>
+    </>   : <></>}
     </div>
   );
 };

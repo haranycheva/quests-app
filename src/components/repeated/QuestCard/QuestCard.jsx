@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function QuestCard({ quest }) {
   return (
-    <Link className="block" href="#">
+    <Link className="block" href={`/quests/${quest.id}`}>
       <div className="flex items-center flex-col">
         <div className="w-[208px] h-[278px] relative">
           <Image

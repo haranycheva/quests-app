@@ -19,7 +19,7 @@ export function MySwiper({ questList, category }) {
           {category}
         </h3>
         <div className="flex justify-center items-center w-full">
-          <ul className="w-full max-w-[880px]">
+          <ul className="w-full max-w-[880px] flex  gap-[5%]">
               {questList.map((quest) => (
                 <li className="justify-center" key={quest.id}>
                   <div className=" inline-block bg-[#eeeeee] rounded-[50px] p-8 transition ease-in-out duration-100 hover:bg-[#C6D2ED]">

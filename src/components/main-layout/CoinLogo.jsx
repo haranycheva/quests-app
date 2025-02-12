@@ -1,0 +1,33 @@
+const CoinLogo = ({ params }) => {
+  return (
+<>
+      <svg
+        width={params.width}
+        height={params.height}
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Coin Shape */}
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#38369A" strokeWidth="7" />
+        
+        {/* Coin Inner Shadow */}
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#38369A" strokeWidth="5" />
+        
+        {/* Number 5 */}
+        <text
+          x="50%"
+          y="55%"
+          fontSize="80"
+          fontWeight="bold"
+          fill="#38369A"
+          textAnchor="middle"
+          dominantBaseline="middle"
+        >
+          5
+        </text>
+      </svg>
+</>
+  );
+};
+
+export default CoinLogo;

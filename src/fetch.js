@@ -61,6 +61,16 @@ export const getUserInfo = async () => {
   return res.data;
 };
 
+export const joinQuest = async (id) => {
+  const res = await axios.post(`/quest/join/${id}`);
+  return res.data;
+};
+
+export const checkIfJoined = async () => {
+  const res = await axios.get(`/checkUserJoined/${id}`);
+  return res.data;
+};
+
 export const getQuestList = async (category) => {
   const res = await axios.get(`/quest/list?category=${category}`);
   return res.data;

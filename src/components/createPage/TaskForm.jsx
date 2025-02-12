@@ -1,10 +1,12 @@
 "use client";
 
+import { addTaskForQuest } from "@/fetch";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 const types = ["INPUT", "OPTION", "CONFORMITY", "CHECK"];
 
-export function TaskForm() {
+export function TaskForm({ questId }) {
   const [formData, setFormData] = useState({
     condition: "",
     media: null,
@@ -126,6 +128,10 @@ export function TaskForm() {
       setError("At least one option and one correct answer are required");
       return false;
     }
+    if (formData.type === "CONFORMITY" && formData.matchingOptions <= 1) {
+      setError("At least 2 matches should be there");
+      return false;
+    }
     if (
       formData.type === "CONFORMITY" &&
       formData.matchingOptions.some(
@@ -139,7 +145,7 @@ export function TaskForm() {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
@@ -165,7 +171,11 @@ export function TaskForm() {
       delete cleanedFormData.matchingOptions;
     if (cleanedFormData.type !== "CHECK") delete cleanedFormData.checkAnswer;
 
-    console.log(cleanedFormData);
+    const res = await addTaskForQuest({
+      ...cleanedFormData,
+      questId: Number(questId),
+    });
+    redirect(`/quests/${questId}/tasks`)
   };
 
   return (

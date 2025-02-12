@@ -1,7 +1,8 @@
 import { TaskForm } from "@/components/createPage/TaskForm";
 import { barrio } from "@/fonts/barrio";
 
-export default function createTaskForQuestPage() {
+export default async function createTaskForQuestPage({ params }) {
+  const { questId } = await params;
   return (
     <div className="pt-6 pl-12">
       <h2
@@ -9,7 +10,7 @@ export default function createTaskForQuestPage() {
       >
         Add task for quest
       </h2>
-      <TaskForm />
+      <TaskForm questId={questId}/>
     </div>
   );
 }
